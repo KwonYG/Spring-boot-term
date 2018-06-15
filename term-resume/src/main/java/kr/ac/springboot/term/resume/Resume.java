@@ -27,19 +27,19 @@ public class Resume {
 	private String email;
 	private String introduction;
 
-	public List<Experience> getResume() {
-		return resume;
-	}
-
-	public void setResume(List<Experience> resume) {
-		this.resume = resume;
-	}
-
 	@OneToMany(mappedBy = "resume", fetch = FetchType.LAZY)
-	private List<Experience> resume;
+	private List<Experience> exp;
 
 	@OneToMany(mappedBy = "resume", fetch = FetchType.LAZY)
 	private List<Question> question;
+
+	public List<Experience> getExp() {
+		return exp;
+	}
+
+	public void setResume(List<Experience> exp) {
+		this.exp = exp;
+	}
 
 	public Resume() {
 

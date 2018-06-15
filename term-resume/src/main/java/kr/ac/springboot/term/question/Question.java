@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import kr.ac.springboot.term.answer.Answer;
 import kr.ac.springboot.term.resume.Resume;
 
 @Entity
@@ -27,8 +28,8 @@ public class Question {
 	private String questionContent;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "questions", fetch = FetchType.LAZY)
-	private List<Question> questions;
+	@OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
+	private List<Answer> answers;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Resume resume;
@@ -67,12 +68,12 @@ public class Question {
 		this.questionContent = questionContent;
 	}
 
-	public List<Question> getQuestions() {
-		return questions;
+	public List<Answer> getAnswers() {
+		return answers;
 	}
 
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
 	}
 
 	public Resume getResume() {
