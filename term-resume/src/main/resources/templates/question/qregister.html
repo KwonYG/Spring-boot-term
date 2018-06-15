@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout}">
+
+<div layout:fragment="content">
+    <div class="container-fluid p-0">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+            <div class="my-auto">
+                <h2 class="mb-5">질문하기 </h2>
+             
+                <hr/>
+             
+                    <div>
+				        <form th:action="@{/question/qregister}" method="post">
+						  <div class="form-group">
+						    <label>질문 내용</label>
+						    <input type="text" class="form-control" name="questionContent" th:value="${qo.questionContent}" placeholder="Content text here.">
+						  </div>
+						  
+						  <div class="form-group">
+						    <label>질문자</label>
+						    <input type="text" class="form-control" name="questioner" th:value="${qo.questioner}" placeholder="name here">
+						  </div>
+						  
+						  <button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+				
+				    </div>
+					<!-- 기간 까먹지 말기 -->
+                
+            </div>
+        </section>
+    </div>
+</div>
+
+</html>

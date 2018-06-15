@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout}">
+
+<div layout:fragment="content">
+    <div class="container-fluid p-0">
+        <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
+            <div class="my-auto">
+                <h2 class="mb-5">경력 </h2>
+             
+                <hr/>
+
+                <form th:action="@{/experience/update}" method="post">
+					<div class="form-group">
+						<label>rno</label>
+						<input readonly="readonly" class="form-control" name="rno" th:value="${vo.rno}" placeholder="Title text here." />
+					</div>
+		
+					<div class="form-group">
+						<label>Title</label>
+						<input class="form-control" name="title" th:value="${vo.title}" placeholder="Title text here." />
+					</div>
+		
+					<div class="form-group">
+						<label>Position</label>
+						<textarea class="form-control" rows="3" name="position" th:text="${vo.position}" placeholder="Position text here."></textarea>
+					</div>
+		
+					<div class="form-group">
+						<label>Content</label> <input class="form-control" name="content" th:value="${vo.content}" placeholder="Content text here."/>
+					</div>
+		
+					<button type="submit" class="btn btn-primary">Submit Button</button>
+					<button type="reset" class="btn btn-warning">Reset Button</button>
+				</form>
+            </div>
+        </section>
+    </div>
+</div>
+
+</html>
+
+
+

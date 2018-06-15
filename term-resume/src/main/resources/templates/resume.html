@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout}">
+
+<div layout:fragment="content">
+    <div class="container-fluid p-0">
+        <!-- 소개 -->
+        <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+            <div class="my-auto">
+                <h1 class="mb-0"> "[[${resume.studentNumber}]]"
+                    <span class="text-primary">[[${resume.name}]]</span>
+                </h1>
+                <div class="subheading mb-5"> "[[${resume.schoolMajor}]]"
+                    <a href="mailto:name@email.com"> "[[${resume.email}]]" </a>
+                </div>
+                <p class="mb-5"> 짧은 소개 글 </p>
+                [[${resume.introduction}]]
+                <hr/>
+                <div>
+                    Q&A
+                    <div class="text-md-right">
+                    	<button class="btn-primary" onclick="location.href='/question/qregister'">질문 등록하기</button>
+                	</div>
+
+                	<hr/>
+
+                    <div class="list-group" th:each="ques:${question}">
+					  <a th:href='@{/question/} + ${ques.qno}' class="list-group-item">[[${ques.questionContent}]]</a>
+					</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+</html>
