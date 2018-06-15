@@ -37,9 +37,10 @@ public class Question {
 
 	}
 
-	public Question(String questioner, String questionContent) {
+	public Question(String questioner, String questionContent, Resume resume) {
 		this.questioner = questioner;
 		this.questionContent = questionContent;
+		this.resume = resume;
 	}
 
 	public Long getQno() {
@@ -64,6 +65,22 @@ public class Question {
 
 	public void setQuestionContent(String questionContent) {
 		this.questionContent = questionContent;
+	}
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
+	public Resume getResume() {
+		return resume;
+	}
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
 	}
 
 }

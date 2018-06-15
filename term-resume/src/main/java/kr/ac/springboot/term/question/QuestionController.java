@@ -9,9 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.ac.springboot.term.resume.ResumeRepository;
+
 @Controller
 @RequestMapping("/question/")
 public class QuestionController {
+
+	@Autowired
+	private ResumeRepository resRepo;
+
 	@Autowired
 	private QuestionRepository quesRepo;
 
@@ -32,6 +38,7 @@ public class QuestionController {
 
 	@PostMapping("/qregister")
 	public String qregisterPOST(@ModelAttribute("qo") Question qo) {
+		qo.setResume(resRepo.findById((long) 1).get());
 		quesRepo.save(qo);
 		return "redirect:/";
 	}

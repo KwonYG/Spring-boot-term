@@ -26,9 +26,10 @@ public class DataLoader implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) {
-		resRepo.save(new Resume("권영근", "2012951014", "경성대학교 소프트웨어학과", "andamirocll@gmail.com","부산에 살고 나이는 26살 이름은 권영근입니다."));
-		quesRepo.save(new Question("질문자 1", "몇살이세요?"));
-		quesRepo.save(new Question("질문자 2", "어디 사세요?"));
+		resRepo.save(new Resume("권영근", "2012951014", "경성대학교 소프트웨어학과", "andamirocll@gmail.com",
+				"부산에 살고 나이는 26살 이름은 권영근입니다."));
+		quesRepo.save(new Question("질문자 1", "몇살이세요?", resRepo.findById((long) 1).orElse(null)));
+		quesRepo.save(new Question("질문자 2", "어디 사세요?", resRepo.findById((long) 1).orElse(null)));
 
 		expRepo.save(new Experience("부스트 에이스 2기", "멘티", "네이버 커넥트 재단에서 진행하는 부스트 에이스 2기 활동 중",
 				resRepo.findById((long) 1).orElse(null)));

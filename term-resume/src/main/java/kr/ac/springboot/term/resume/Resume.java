@@ -45,12 +45,12 @@ public class Resume {
 
 	}
 
-	public Resume(String name, String studentNumber, String schoolMajor, String email,String introduction) {
+	public Resume(String name, String studentNumber, String schoolMajor, String email, String introduction) {
 		this.name = name;
 		this.studentNumber = studentNumber;
 		this.schoolMajor = schoolMajor;
 		this.email = email;
-		this.introduction=introduction;
+		this.introduction = introduction;
 	}
 
 	public Long getRno() {
